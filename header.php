@@ -2,6 +2,7 @@
 session_start();	//セッションを開始する
 require_once("function.php");	//システム内で利用する関数群を読み込む
 login_check();    //ログインしているかどうかチェックする
+auth_check();
 ?>
 <!DOCTYPE html>
 <html lang="ja">

@@ -37,6 +37,7 @@ function get_screen_name() {
     case 'menu' : $screen_name = 'システムメニュー'; break;
     case 'm001' : $screen_name = '医療機関マスタ'; break;
     case 'm002' : $screen_name = '利用者マスタ'; break;
+    case 'm003' : $screen_name = '操作権限マスタ'; break;
     case 't001' : $screen_name = '訪問予定入力'; break;
     case 't002' : $screen_name = '訪問実績入力'; break;
     case 't003' : $screen_name = '訪問実績照会'; break;

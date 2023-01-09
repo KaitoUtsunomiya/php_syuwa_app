@@ -2,6 +2,7 @@
 
 <?php
 $message = '';      // 更新メッセージ
+$is_error = false;
 
 // 更新ボタンがクリックされた場合
 if (isset($_POST["update"])) {
@@ -37,11 +38,16 @@ if (isset($_POST["insert"])) {
   $hosp_addr = $_POST["new_hosp_addr"]; // 住所
   $hosp_tel  = $_POST["new_hosp_tel"];  // 電話番号
 
-  // レコードを1件追加する
-  insert_hosp($hosp_code, $hosp_name, $hosp_addr, $hosp_tel);
-
-  // 更新メッセージをセットする
-  $message = '医療機関マスタを追加しました。';
+  try{
+    // レコードを1件追加する
+    insert_hosp($hosp_code, $hosp_name, $hosp_addr, $hosp_tel);
+    // 更新メッセージをセットする
+    $message = '医療機関マスタを追加しました。';
+  } catch(PDOException $e){
+    //var_dump($e);
+    $message = '入力された医療機関コードは登録済みです。';
+    $is_error = true;
+  }
 }
 
 // 医療機関の一覧を取得する
